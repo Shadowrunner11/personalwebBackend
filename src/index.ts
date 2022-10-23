@@ -1,38 +1,11 @@
-import express from 'express';
-import { ApolloServer } from 'apollo-server-express';
+import app  from "./server";
+import { buildEnviroment, enviroment, server } from "./config";
 
-const typeDefs = `#graphql
-  type Query {
-    hello: String
-  }
-`;
+export = app
 
-const resolvers = {
-  Query: {
-    hello: () => 'world',
-  },
-};
+if(buildEnviroment !== enviroment.Prod)
+  app.listen(server.port, server.host,()=>{
+    console.log(`Listening on port http://${server.host}:${server.port}`)
+  })
 
-const app = express();
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-});
-
-server
-  .start()
-  .then(()=>{
-    server.applyMiddleware({ app });
-  });
-
-
-app.get('/', (_, res) => {
-  res.send('Hello World!')
-})
-
-
-export  {app as module}
-
-
-
-
+  
