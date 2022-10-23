@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "rootDirs": ["src"],
+    "outDir": "./",
+    "lib": ["ES2015"],
+    "target": "ES2016",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "types": ["node"],
+  },
+  "exclude": ["node_modules/"],
+  "include": ["./src/**/*.ts"]
+}
