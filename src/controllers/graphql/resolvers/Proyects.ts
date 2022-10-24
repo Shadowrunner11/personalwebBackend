@@ -5,6 +5,7 @@ const resolvers = {
   Query:{
     getProyects: ()=> ProyectActuator.getProyects()
       .catch(err=>{ throw new ApolloError(err)}),
+    getPhtos:()=> ProyectActuator.getPhotos()
   },
   Mutation:{
     createProyect: (_,args)=> ProyectActuator.createProyect(args)

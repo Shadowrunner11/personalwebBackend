@@ -14,11 +14,21 @@ const typeDefs = gql`
     age: Int
     address: String
   }
+
+  type Photo {
+    url: String
+    name: String
+    label: String
+  }
+
   type Query {
     getProyects: [User]
   }
   type Mutation{
     createProyect(input: UserInput!): User
+  }
+  type Query {
+    getPhtos:[Photo]
   }
 `;
 export default typeDefs;
